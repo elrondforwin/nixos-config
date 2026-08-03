@@ -69,12 +69,6 @@
   services.gnome.gnome-keyring.enable = true;
   services.flatpak.enable = true;
   services.tailscale.enable = true;
-  # services.syncthing = {
-  #   enable = true;
-  #   openDefaultPorts = true;
-  #   dataDir = "/home/elrond";
-  #   configDir = "/home/elrond/.config/syncthing";
-  # };
 
   # Login manager: greetd with a minimal TUI greeter (Hyprland session).
   services.greetd = {
@@ -174,13 +168,11 @@
   # networking.firewall.allowedTCPPorts = [  ];
   networking.firewall.enable = true;
 
-  networking.firewall.allowedTCPPortRanges = [
-    { from = 1714; to = 1764; } # kde connect
-  ];
-
-  networking.firewall.allowedUDPPortRanges = [
-    { from = 1714; to = 1764; } # kde connect
-  ];
+  # kde connect ports
+  networking.firewall = rec {
+    allowedTCPPortRanges = [ { from = 1714; to = 1764; } ];
+    allowedUDPPortRanges = [ { from = 1714; to = 1764; } ];
+  };
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

@@ -26,6 +26,15 @@ in
     ".ideavimrc".source = link ".ideavimrc";
   };
 
+  services.kdeconnect.enable = true;
+
+  services.syncthing = {
+    enable = true;
+    overrideDevices = true;
+    overrideFolders = true;
+  };
+
+
   home.packages = [
     inputs.helium.packages.${pkgs.system}.default
     inputs.noctalia.packages.${pkgs.system}.default
@@ -38,6 +47,7 @@ in
     pkgs.protonplus
     pkgs.termius
     pkgs.vscode
+    pkgs.obsidian
 
     # terminal tools
     pkgs.yazi
@@ -68,7 +78,6 @@ in
     pkgs.playerctl
     pkgs.wl-clipboard
     pkgs.kdePackages.dolphin
-    pkgs.kdePackages.kdeconnect-kde
     # idk if these are needed or not but I added this while I was trying to fix empty open with tab on dolphin
     pkgs.kdePackages.kio
     pkgs.kdePackages.kdf
