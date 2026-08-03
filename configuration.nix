@@ -66,9 +66,15 @@
   };
 
   services.xserver.enable = false;
-
   services.gnome.gnome-keyring.enable = true;
   services.flatpak.enable = true;
+  services.tailscale.enable = true;
+  # services.syncthing = {
+  #   enable = true;
+  #   openDefaultPorts = true;
+  #   dataDir = "/home/elrond";
+  #   configDir = "/home/elrond/.config/syncthing";
+  # };
 
   # Login manager: greetd with a minimal TUI greeter (Hyprland session).
   services.greetd = {
@@ -162,13 +168,19 @@
   # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
+  services.openssh.enable = true;
 
   # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
+  # networking.firewall.allowedTCPPorts = [  ];
+  networking.firewall.enable = true;
+
+  networking.firewall.allowedTCPPortRanges = [
+    { from = 1714; to = 1764; } # kde connect
+  ];
+
+  networking.firewall.allowedUDPPortRanges = [
+    { from = 1714; to = 1764; } # kde connect
+  ];
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
