@@ -30,11 +30,14 @@
     # Binary caches (cachix)
     substituters = [
       "https://cache.nixos.org"
+      "https://noctalia.cachix.org"
       "https://hyprland.cachix.org"
     ];
     trusted-public-keys = [
       "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
       "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
+
+      "noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4="
     ];
     # Allow non-root users (wheel) to use the substituters/keys above
     trusted-users = [ "root" "@wheel" ];
@@ -66,9 +69,27 @@
   };
 
   services.xserver.enable = false;
+
   services.gnome.gnome-keyring.enable = true;
+
   services.flatpak.enable = true;
+
   services.tailscale.enable = true;
+
+  services.lact.enable = true;
+
+  # needed to control pc from moonlight
+  hardware.uinput.enable = true;
+  services.sunshine = {
+    enable = true;
+    autoStart = true;
+    capSysAdmin = true;
+    openFirewall = true;
+  };
+  services.sunshine.package = pkgs.sunshine.override {
+    cudaSupport = true;
+    cudaPackages = pkgs.cudaPackages;
+  };
 
   # Login manager: greetd with a minimal TUI greeter (Hyprland session).
   services.greetd = {
@@ -104,11 +125,9 @@
   users.users."elrond" = {
     isNormalUser = true;
     description = "elrond";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "uinput" ];
     shell = pkgs.zsh;
-    packages = with pkgs; [
-     # thunderbird
-    ];
+    packages = with pkgs; [];
   };
 
   # Install firefox.
@@ -120,6 +139,15 @@
   programs.hyprland = {
     enable = true;
     xwayland.enable = true;
+  };
+
+  programs.gamescope.enable = true;
+  programs.steam = {
+    enable = true;
+    remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
+    dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
+    localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Game Transfers
+    gamescopeSession.enable = true;
   };
 
   # xdg-desktop-portal for screen sharing / file pickers
@@ -143,6 +171,8 @@
     pkgs.cachix
     pkgs.fzf
     pkgs.kdePackages.breeze
+    pkgs.power-profiles-daemon
+    pkgs.file
   ];
 
   hardware.graphics.enable = true;

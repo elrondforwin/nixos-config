@@ -53,3 +53,8 @@ hl.config({
         no_warps = true,
     }
 })
+
+hl.env("HYPRCURSOR_THEME", "KDE Classic HD")
+hl.env("HYPRCURSOR_SIZE", "24")
+hl.env("XCURSOR_THEME", "KDE Classic HD")
+hl.env("XCURSOR_SIZE", "24")

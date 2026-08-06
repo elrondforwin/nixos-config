@@ -110,7 +110,6 @@ alias egrep='egrep --color=auto'
 alias hw='hwinfo --short' # Hardware Info
 alias big="expac -H M '%m\t%n' | sort -h | nl" # Sort installed packages according to size in MB
 alias gitpkg='pacman -Q | grep -i "\-git" | wc -l' # List amount of -git packages
-# alias update='sudo pacman -Syu'
 alias img="kitten icat"
 alias copy="wl-copy"
 alias jctl="journalctl -p 3 -xb"
@@ -122,14 +121,12 @@ alias zed='zeditor'
 alias code="code --enable-features=UseOzonePlatform --ozone-platform=wayland"
 alias code-oss="code --enable-features=UseOzonePlatform --ozone-platform=wayland"
 alias r="rmpc"
-alias reloadwaybar="waybarctl reload"
 alias rip="expac --timefmt='%Y-%m-%d %T' '%l\t%n %v' | sort | tail -200 | nl"
 alias nemohere="nemo . &> /dev/null & disown"
 alias dolphere="dolphin . &> /dev/null & disown"
 alias rcp='rsync --archive --modify-window=2 --progress --verbose --itemize-changes --stats --human-readable'
 alias f='fastfetch'
 alias t='tmux'
-alias notes="dredge"
 alias kittyconf="nvim ~/.config/kitty/kitty.conf; cd -"
 alias hyprconf="cd ~/.config/hypr/configs; y"
 alias airplay="uxplay -bt709 -avdec -vsync -fps 60"

@@ -13,7 +13,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    noctalia.url = "github:noctalia-dev/noctalia";
+    noctalia.url = "github:noctalia-dev/noctalia/cachix";
 
     qt6ct-kde = {
       url = "github:SeallEgg/qt6ct-kde-flake";

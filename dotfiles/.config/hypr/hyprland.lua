@@ -8,5 +8,5 @@ require("decoration")
 require("layouts")
 require("misc")
 require("noctalia").apply_theme()
--- uncomment this if you are gonna use nwg-displays
--- require("monitors")
+require("monitors")
+require("workspaces")

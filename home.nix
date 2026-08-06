@@ -19,14 +19,23 @@ in
   home.file = {
     ".config/hypr".source = link ".config/hypr";
     ".config/kitty".source = link ".config/kitty";
-    ".config/niri".source = link ".config/niri";
     ".config/nvim".source = link ".config/nvim";
     ".config/nvim-vscode".source = link ".config/nvim-vscode";
     ".zshrc".source = link ".zshrc";
     ".ideavimrc".source = link ".ideavimrc";
+    ".config/xdg-desktop-portal/Hyprland-portals.conf".source = link ".config/xdg-desktop-portal/Hyprland-portals.conf";
   };
 
   services.kdeconnect.enable = true;
+
+  # Hyprland 0.56 has no built-in systemd integration; activate
+  # graphical-session.target so xdg-desktop-portal can start.
+  systemd.user.targets.hyprland-session = {
+    Unit = {
+      Description = "Hyprland session";
+      Wants = [ "graphical-session.target" ];
+    };
+  };
 
   services.syncthing = {
     enable = true;
@@ -43,11 +52,11 @@ in
     # user packages / desktop related
     pkgs.home-manager
     pkgs.prismlauncher
-    pkgs.steam
     pkgs.protonplus
     pkgs.termius
     pkgs.vscode
     pkgs.obsidian
+    pkgs.qbittorrent
 
     # terminal tools
     pkgs.yazi
@@ -78,29 +87,37 @@ in
     pkgs.playerctl
     pkgs.wl-clipboard
     pkgs.kdePackages.dolphin
-    # idk if these are needed or not but I added this while I was trying to fix empty open with tab on dolphin
-    pkgs.kdePackages.kio
-    pkgs.kdePackages.kdf
-    pkgs.kdePackages.kio-fuse
-    pkgs.kdePackages.kio-extras
-    pkgs.kdePackages.kio-admin
-    pkgs.kdePackages.qtwayland
-    pkgs.kdePackages.plasma-integration
     pkgs.kdePackages.plasma-workspace
-    pkgs.kdePackages.kdegraphics-thumbnailers
-    pkgs.kdePackages.breeze-icons
-    pkgs.kdePackages.qtsvg
-    pkgs.kdePackages.kservice
     pkgs.kdePackages.ark
     pkgs.kdePackages.gwenview
     pkgs.haruna
     pkgs.shared-mime-info
     pkgs.apple-cursor
     pkgs.nwg-look
+    pkgs.nwg-displays
     pkgs.adw-gtk3
     pkgs.kdePackages.kio
     pkgs.kdePackages.kservice
     pkgs.tela-icon-theme
 
+    # development
+
+    pkgs.jdk25
+    pkgs.rustc
+    pkgs.cargo
+
   ];
+
+  xdg.mimeApps = {
+    enable = true;
+    defaultApplications = {
+      "inode/directory" = "org.kde.dolphin.desktop";
+      "application/zip" = "org.kde.ark.desktop";
+      "text/plain" = "nvim.desktop";
+      "image/jpeg" = "org.kde.gwenview.desktop";
+      "image/png" = "org.kde.gwenview.desktop";
+      "image/jpg" = "org.kde.gwenview.desktop";
+    };
+  };
+
 }
