@@ -21,6 +21,10 @@ fi
 # Flatpak desktop integration fix
 export XDG_DATA_DIRS="/var/lib/flatpak/exports/share:/home/elrond/.local/share/flatpak/exports/share:${XDG_DATA_DIRS:-/usr/local/share:/usr/share}"
 
+# nixos npm -g
+export NPM_CONFIG_PREFIX="$HOME/.npm-global"
+export PATH="$HOME/.npm-global/bin:$PATH"
+
 # Set $EDITOR
 export EDITOR="nvim"
 

@@ -3,9 +3,10 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+
     helium = {
     	url = "github:schembriaiden/helium-browser-nix-flake";
-	inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     home-manager = {
@@ -17,6 +18,21 @@
 
     qt6ct-kde = {
       url = "github:SeallEgg/qt6ct-kde-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    omp-nix = {
+      url = "github:yuxqiu/omp-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    fetch = {
+      url = "github:areofyl/fetch";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    apple-fonts = {
+      url = "github:Lyndeno/apple-fonts.nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };

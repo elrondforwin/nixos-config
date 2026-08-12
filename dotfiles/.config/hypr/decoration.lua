@@ -28,7 +28,7 @@ hl.config({
         },
 
         blur             = {
-            enabled = true,
+            enabled = false,
             size = 8,
             passes = 3,
             brightness = 0.8,
@@ -53,8 +53,3 @@ hl.config({
         no_warps = true,
     }
 })
-
-hl.env("HYPRCURSOR_THEME", "KDE Classic HD")
-hl.env("HYPRCURSOR_SIZE", "24")
-hl.env("XCURSOR_THEME", "KDE Classic HD")
-hl.env("XCURSOR_SIZE", "24")

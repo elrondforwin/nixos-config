@@ -48,6 +48,9 @@ in
     inputs.helium.packages.${pkgs.system}.default
     inputs.noctalia.packages.${pkgs.system}.default
     inputs.qt6ct-kde.packages.${pkgs.system}.default
+    inputs.omp-nix.packages.${pkgs.system}.default
+    inputs.fetch.packages.${pkgs.system}.default
+    inputs.apple-fonts.packages.${pkgs.system}.sf-pro
 
     # user packages / desktop related
     pkgs.home-manager
@@ -57,6 +60,8 @@ in
     pkgs.vscode
     pkgs.obsidian
     pkgs.qbittorrent
+    pkgs.obs-studio
+    pkgs.gnome-font-viewer
 
     # terminal tools
     pkgs.yazi
@@ -68,6 +73,8 @@ in
     pkgs.herdr
     pkgs.cursor-cli
     pkgs.github-cli
+    pkgs.ripgrep
+    pkgs.nh
 
     # zsh config related
     pkgs.eza
@@ -78,6 +85,7 @@ in
     # fonts
     pkgs.adwaita-fonts
     pkgs.nerd-fonts.jetbrains-mono
+    pkgs.nerd-fonts.iosevka
 
     # hyprland and desktop tools
     pkgs.hyprpicker
@@ -105,6 +113,8 @@ in
     pkgs.jdk25
     pkgs.rustc
     pkgs.cargo
+    pkgs.sqlite
+    pkgs.nodejs
 
   ];
 
