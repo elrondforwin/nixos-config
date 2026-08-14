@@ -48,9 +48,9 @@ in
     inputs.helium.packages.${pkgs.system}.default
     inputs.noctalia.packages.${pkgs.system}.default
     inputs.qt6ct-kde.packages.${pkgs.system}.default
-    inputs.omp-nix.packages.${pkgs.system}.default
     inputs.fetch.packages.${pkgs.system}.default
     inputs.apple-fonts.packages.${pkgs.system}.sf-pro
+    inputs.llm-agents.packages.${pkgs.system}.omp
 
     # user packages / desktop related
     pkgs.home-manager
@@ -62,6 +62,7 @@ in
     pkgs.qbittorrent
     pkgs.obs-studio
     pkgs.gnome-font-viewer
+    pkgs.libsecret
 
     # terminal tools
     pkgs.yazi
@@ -115,6 +116,7 @@ in
     pkgs.cargo
     pkgs.sqlite
     pkgs.nodejs
+    pkgs.bun
 
   ];
 

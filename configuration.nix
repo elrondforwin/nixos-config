@@ -27,16 +27,16 @@
   nix.settings = {
     experimental-features = [ "nix-command" "flakes" ];
 
-    # Binary caches (cachix)
     substituters = [
       "https://cache.nixos.org"
       "https://noctalia.cachix.org"
       "https://hyprland.cachix.org"
+      "https://cache.numtide.com"
     ];
     trusted-public-keys = [
       "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
       "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
-
+      "niks3.numtide.com-1:DTx8wZduET09hRmMtKdQDxNNthLQETkc/yaX7M4qK0g="
       "noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4="
     ];
     # Allow non-root users (wheel) to use the substituters/keys above
@@ -134,6 +134,9 @@
   programs.firefox.enable = true;
 
   programs.zsh.enable = true;
+
+  programs.appimage.enable = true;
+  programs.appimage.binfmt = true;
 
   # Hyprland (release version from nixpkgs unstable)
   programs.hyprland = {

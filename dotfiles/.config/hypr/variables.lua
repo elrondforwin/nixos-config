@@ -73,6 +73,8 @@ local vars = {
     keySwapWindowToLeft = "SUPER + ALT + mouse_up",
     keySwapWindowToRight = "SUPER + ALT + mouse_down",
 
+    keyToggleNoScreenshare = "SUPER + SHIFT + R",
+
     -- Requires https://github.com/yayuuu/hyprland-scroll-overview
     keyToggleScrollOverview = "SUPER + A"
 

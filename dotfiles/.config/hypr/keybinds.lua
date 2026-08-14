@@ -18,6 +18,7 @@ hl.bind(vars.keyToggleFreeze, hl.dsp.exec_cmd(vars.cmdToggleFreeze))
 -- compositor
 hl.bind(vars.keyCloseWindow, hl.dsp.window.close())
 hl.bind(vars.keyTogglePseudo, hl.dsp.window.pseudo())
+hl.bind(vars.keyToggleNoScreenshare, hl.dsp.window.tag({ tag = "noscreenshare" }))
 
 -- workspaces
 for i = 1, 10 do

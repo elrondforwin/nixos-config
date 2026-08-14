@@ -21,10 +21,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    omp-nix = {
-      url = "github:yuxqiu/omp-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    llm-agents.url = "github:numtide/llm-agents.nix";
 
     fetch = {
       url = "github:areofyl/fetch";
