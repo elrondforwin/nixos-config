@@ -51,11 +51,6 @@ hl.window_rule({
   border_color = "rgb(00ff00)",
 })
 
-hl.window_rule({
-  match = { group = true },
-  border_color = "rgb(ff00ff)",
-})
-
 -- dynamically hide windows from screenshare
 local hideFromScreeshareClasses = { "proton-pass", "Termius", "obsidian" }
 

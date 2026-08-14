@@ -34,7 +34,8 @@ local vars = {
     keyMoveToWorkspaceModifier = "SUPER + SHIFT",
 
     keyFocusModifier = "SUPER",
-    keySwapModifier = "SUPER + SHIFT",
+    keyMoveModifier = "SUPER + SHIFT",
+    keyMoveGroupAwareModifier = "SUPER + CTRL",
     keyResizeModifier = "SUPER + ALT",
 
     keyFocusWindow = "SUPER + F",
@@ -46,6 +47,8 @@ local vars = {
     keyChangeGroupNext = "SUPER + TAB",
     keyChangeGroupPrev = "SUPER + SHIFT + TAB",
     keyMoveOutOfGroup = "SUPER + D",
+    keyMoveWindowOrderGroupNext = "SUPER + SHIFT + page_up",
+    keyMoveWindowOrderGroupPrev = "SUPER + SHIFT + page_down",
 
     keyLeft = "H",
     keyRight = "L",
@@ -55,7 +58,7 @@ local vars = {
     keyToggleSpecialWorkspace = "SUPER + GRAVE",
     keyMoveWindowToSpecialWorkspace = "SUPER + SHIFT + GRAVE",
 
-    keyToggleNoScreenshare = "SUPER + SHIFT + R",
+    keyToggleNoScreenshare = "SUPER + S",
 
 }
 
@@ -94,10 +97,12 @@ hl.bind(vars.keyTogglePinWindow, hl.dsp.window.pin())
 -- Groups
 ----------------------------------------
 hl.bind(vars.keyToggleGroup, hl.dsp.group.toggle())
-hl.bind(vars.keyLockActiveGroup, hl.dsp.group.lock())
+hl.bind(vars.keyLockActiveGroup, hl.dsp.group.lock_active())
 hl.bind(vars.keyChangeGroupNext, hl.dsp.group.next())
 hl.bind(vars.keyChangeGroupPrev, hl.dsp.group.prev())
 hl.bind(vars.keyMoveOutOfGroup, hl.dsp.window.move({ out_of_group = true }))
+hl.bind(vars.keyMoveWindowOrderGroupNext, hl.dsp.group.move_window({ forward = false }))
+hl.bind(vars.keyMoveWindowOrderGroupPrev, hl.dsp.group.move_window())
 
 ----------------------------------------
 -- Workspaces
@@ -112,17 +117,22 @@ hl.bind(vars.keyToggleSpecialWorkspace, hl.dsp.workspace.toggle_special("scratch
 hl.bind(vars.keyMoveWindowToSpecialWorkspace, hl.dsp.window.move({ workspace = "special:scratchpad" }))
 
 ----------------------------------------
--- Focus / Swap / Resize (directional)
+-- Focus / Move / Swap / Resize (directional)
 ----------------------------------------
 hl.bind(vars.keyFocusModifier .. " + " .. vars.keyLeft, hl.dsp.focus({ direction = "left" }))
 hl.bind(vars.keyFocusModifier .. " + " .. vars.keyRight, hl.dsp.focus({ direction = "right" }))
 hl.bind(vars.keyFocusModifier .. " + " .. vars.keyUp, hl.dsp.focus({ direction = "up" }))
 hl.bind(vars.keyFocusModifier .. " + " .. vars.keyDown, hl.dsp.focus({ direction = "down" }))
 
-hl.bind(vars.keySwapModifier .. " + " .. vars.keyLeft, hl.dsp.window.move({ direction = "left" }))
-hl.bind(vars.keySwapModifier .. " + " .. vars.keyRight, hl.dsp.window.move({ direction = "right" }))
-hl.bind(vars.keySwapModifier .. " + " .. vars.keyUp, hl.dsp.window.move({ direction = "up" }))
-hl.bind(vars.keySwapModifier .. " + " .. vars.keyDown, hl.dsp.window.move({ direction = "down" }))
+hl.bind(vars.keyMoveModifier .. " + " .. vars.keyLeft, hl.dsp.window.move({ direction = "left" }))
+hl.bind(vars.keyMoveModifier .. " + " .. vars.keyRight, hl.dsp.window.move({ direction = "right" }))
+hl.bind(vars.keyMoveModifier .. " + " .. vars.keyUp, hl.dsp.window.move({ direction = "up" }))
+hl.bind(vars.keyMoveModifier .. " + " .. vars.keyDown, hl.dsp.window.move({ direction = "down" }))
+
+hl.bind(vars.keyMoveGroupAwareModifier .. " + " .. vars.keyLeft, hl.dsp.window.move({ direction = "left", group_aware = true }))
+hl.bind(vars.keyMoveGroupAwareModifier .. " + " .. vars.keyRight, hl.dsp.window.move({ direction = "right", group_aware = true }))
+hl.bind(vars.keyMoveGroupAwareModifier .. " + " .. vars.keyUp, hl.dsp.window.move({ direction = "up", group_aware = true }))
+hl.bind(vars.keyMoveGroupAwareModifier .. " + " .. vars.keyDown, hl.dsp.window.move({ direction = "down", group_aware = true }))
 
 hl.bind(vars.keyResizeModifier .. " + " .. vars.keyLeft,
     hl.dsp.window.resize({ x = -100., y = 0.0, relative = true }))

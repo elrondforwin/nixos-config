@@ -1,7 +1,7 @@
 hl.config({
     general = {
         gaps_in          = 2,
-        gaps_out         = 10,
+        gaps_out         = 25,
 
         col = {
             active_border   = { colors = {"rgba(33ccffee)", "rgba(00ff99ee)"}, angle = 45 },
@@ -47,10 +47,19 @@ hl.config({
 
     group = {
         groupbar = {
-            enabled = false,
-            indicator_height = 8,
-            render_titles = false,
-            rounding = 4,
+            enabled = true,
+            col = {
+                active = "rgba(ff00ffff)",
+                inactive = "rgba(ff00ff70)",
+                locked_active = "rgba(ff002bff)",
+                locked_inactive = "rgba(ff002b70)",
+            },
+        },
+        col = {
+            border_active = "rgba(ff00ffff)",
+            border_inactive = "rgba(ff00ff70)",
+            border_locked_active = "rgba(ff002bff)",
+            border_locked_inactive = "rgba(ff002b70)",
         },
     },
 
