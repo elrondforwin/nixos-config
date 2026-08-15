@@ -136,6 +136,7 @@ alias hyprconf="cd ~/.config/hypr/configs; y"
 alias airplay="uxplay -bt709 -avdec -vsync -fps 60"
 alias virtscreen="~/.config/hypr/scripts/virtscreen.sh"
 alias rebuild="sudo nixos-rebuild switch --flake /home/elrond/nixos#nixos"
+alias pack="nixpkgs.sh"
 
 vencordinstall() {
   sh -c "$(curl -sS https://vencord.dev/install.sh)"

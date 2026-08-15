@@ -63,6 +63,7 @@ in
     pkgs.obs-studio
     pkgs.gnome-font-viewer
     pkgs.libsecret
+    pkgs.quickshell
 
     # terminal tools
     pkgs.yazi
@@ -76,6 +77,7 @@ in
     pkgs.github-cli
     pkgs.ripgrep
     pkgs.nh
+    pkgs.nix-search-tv
 
     # zsh config related
     pkgs.eza
