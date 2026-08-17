@@ -78,6 +78,8 @@
 
   services.lact.enable = true;
 
+  services.udisks2.enable = true;
+
   # needed to control pc from moonlight
   hardware.uinput.enable = true;
   services.sunshine = {
@@ -137,6 +139,13 @@
 
   programs.appimage.enable = true;
   programs.appimage.binfmt = true;
+
+  programs.nix-ld = {
+    enable = true;
+    libraries = with pkgs; [
+      stdenv.cc.cc.lib
+    ];
+  };
 
   # Hyprland (release version from nixpkgs unstable)
   programs.hyprland = {

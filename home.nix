@@ -63,7 +63,9 @@ in
     pkgs.obs-studio
     pkgs.gnome-font-viewer
     pkgs.libsecret
-    pkgs.quickshell
+    pkgs.pear-desktop
+    pkgs.gpu-screen-recorder
+    pkgs.kdePackages.partitionmanager
 
     # terminal tools
     pkgs.yazi
@@ -78,6 +80,7 @@ in
     pkgs.ripgrep
     pkgs.nh
     pkgs.nix-search-tv
+    pkgs.jq
 
     # zsh config related
     pkgs.eza
@@ -119,6 +122,9 @@ in
     pkgs.sqlite
     pkgs.nodejs
     pkgs.bun
+    pkgs.python314
+    pkgs.python314Packages.pip
+    pkgs.python314Packages.numpy
 
   ];
 
